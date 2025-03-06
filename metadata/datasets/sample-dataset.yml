@@ -1,0 +1,21 @@
+id: example_table                # Dataset identifier
+platform: s3                   # Platform name
+env: PROD                        # Environment (PROD by default)
+
+# Metadata (optional)
+name: Example Table              # Display name (defaults to id if not specified)
+description: This is an example table
+
+# Schema definition (optional)
+schema:
+  fields:
+    - id: Id                 # Field identifier
+      type: string               # Data type
+      description: id field   # Field description
+      nullable: true              # Whether field can be null (default: false)
+    - id: Geometry
+      type: bytes
+      nullable: true
+    - id: Primary
+      type: bytes
+      nullable: true

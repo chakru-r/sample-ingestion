@@ -41,7 +41,7 @@ jobs:
         with:
           datahub-server: your-test-server
           datahub-token: your-test-PAT
-          command: dataset upsert -f ${{ matrix.file }}
+          command: dataset file --lintCheck -f ${{ github.workspace}}/${{ matrix.file }}
 
       - name: Load file into DataHub
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
@@ -49,4 +49,4 @@ jobs:
         with:
           datahub-server: your-server
           datahub-token: your-PAT
-          command: dataset upsert -f ${{ github.workspace}}/${{ matrix.file }}
+          command: dataset sync --to-datahub -f ${{ github.workspace}}/${{ matrix.file }}
